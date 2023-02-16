@@ -132,7 +132,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                       Navigator.pushReplacement(
                           context,
                           CupertinoPageRoute(
-                            builder: (context) => const HomeScreen(),
+                            builder: (context) =>  HomeScreen(userModel: state.userModel!,firebaseUser: state.firebaseUser!,),
                           ));
                     }
                   },
@@ -161,7 +161,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                   BlocProvider.of<SignUpCubit>(context).completeSignUpProcess(
                       _fullNameController.text.trim(),
                       imageFile,
-                      widget.userModel!);
+                      widget.userModel);
 
                   // Navigator.popUntil(context, (route) => route.isFirst);
                   // Navigator.pushReplacement(

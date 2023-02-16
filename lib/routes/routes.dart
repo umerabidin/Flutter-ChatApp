@@ -5,9 +5,9 @@ class Routes {
   static Routes? generatedRoutes(RouteSettings settings) {
     switch (settings.name) {
       case "/home":
-        MaterialPageRoute(
-          builder: (context) => HomeScreen(),
-        );
+        // MaterialPageRoute(
+        //   builder: (context) => HomeScreen(),
+        // );
     }
     return null;
   }

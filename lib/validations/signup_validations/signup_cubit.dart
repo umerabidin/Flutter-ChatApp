@@ -79,7 +79,9 @@ class SignUpCubit extends Cubit<SignUpStates> {
           .set(userModel.toMap())
           .catchError((onError) {
         emit(SignUpErrorState(onError));
-      }).then((value) => emit(SignUpCompleteState("")));
+
+
+      }).then((value) => emit(SignUpCompleteState("",userModel, FirebaseAuth.instance.currentUser)));
     }
   }
 }
