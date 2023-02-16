@@ -19,7 +19,9 @@ class EmailNotValidState extends SignUpStates {
 
 }class SignUpCompleteState extends SignUpStates {
   String message;
-  SignUpCompleteState(this.message);
+  UserModel? userModel;
+  User? firebaseUser;
+  SignUpCompleteState(this.message, this.userModel,this.firebaseUser);
 
 }
 

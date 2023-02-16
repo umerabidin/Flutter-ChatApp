@@ -1,3 +1,4 @@
+import 'package:chat_app/models/FirebaseHelper.dart';
 import 'package:chat_app/models/UserModel.dart';
 import 'package:chat_app/validations/login_validation/login_states.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -38,7 +39,8 @@ class LoginCubit extends Cubit<LoginState> {
           await FirebaseFirestore.instance.collection("users").doc(uid).get();
       UserModel user =
           UserModel.fromMap(userModel.data() as Map<String, dynamic>);
-      emit(LoginLoadedState(user));
-      emit(EnableLoginButtonState());}
+      emit(LoginLoadedState(user, credentials.user));
+      emit(EnableLoginButtonState());
+    }
   }
 }

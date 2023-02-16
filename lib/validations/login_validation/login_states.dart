@@ -27,7 +27,8 @@ class EnableLoginButtonState extends LoginState {}
 class LoginLoadingState extends LoginState {}
 class LoginLoadedState extends LoginState {
   UserModel? user;
-  LoginLoadedState(this.user);
+  User? firebaseUser;
+  LoginLoadedState(this.user, this.firebaseUser);
 
 }
 class LoginErrorState extends LoginState {
