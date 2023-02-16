@@ -7,6 +7,7 @@ import 'package:chat_app/widgets/textinput.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -45,7 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       builder: (context, state) {
                         if (state is EmailNotValidState) {
                           return Text(state.message,
-                              style: const TextStyle(color: Colors.red));
+                              style: TextStyle(color: HexColor("#5F211CFF")));
                         }
                         return Container();
                       },
@@ -66,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       builder: (context, state) {
                         if (state is PasswordNotValidState) {
                           return Text(state.message,
-                              style: TextStyle(color: Colors.red));
+                              style: const TextStyle(color: Colors.red));
                         }
                         return Container();
                       },
@@ -97,10 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => HomeScreen(
-                                userModel: state.user!,
-                                firebaseUser: state.firebaseUser!,
-                              ),
+                              builder: (context) => HomeScreen(userModel: state.user!, firebaseUser: state.firebaseUser!,),
                             ));
                       }
                     },
@@ -124,20 +122,20 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
       bottomNavigationBar: Container(
-        margin: EdgeInsets.only(bottom: 30),
+        margin: const EdgeInsets.only(bottom: 30),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               "Don't have an account?",
               style: TextStyle(fontSize: 16),
             ),
             CupertinoButton(
-                child: Text("Signup", style: TextStyle(fontSize: 16)),
+                child: const Text("Signup", style: TextStyle(fontSize: 16)),
                 onPressed: () => Navigator.push(
                     context,
                     CupertinoPageRoute(
-                      builder: (context) => SignUpPage(),
+                      builder: (context) => const SignUpPage(),
                     )))
           ],
         ),
